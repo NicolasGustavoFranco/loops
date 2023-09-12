@@ -1,25 +1,30 @@
-import random,time,csv
-
-
-while True:
- Numale = random.randint(1, 300)
- print("Su numero es: ",Numale)
- time.sleep(2)
-
-
-
 import csv
 import random
 
-path="/home/eocampo/Escritorio/porque_pregunta_6.csv"
-file=open(path,newline='')
-reader=csv.reader(file)
-data=[row for row in reader]
-reader = csv.reader(data[0], delimiter=',')
+Numale = random.random()
+print("Su numero es: ",Numale)
 
-randomList=[]
-for row in reader:
-    randomList.append(row)
+fields = ['NUMERO']
+  
+rows = [[Numale]]
+ 
 
-newVar=random.choice(randomList)
-print(newVar)
+filename = "NumerosAleatorios.csv"
+ 
+
+with open(filename, 'w') as csvfile:
+   
+    csvwriter = csv.writer(csvfile)
+     
+    
+    csvwriter.writerow(fields)
+     
+    
+    csvwriter.writerows(rows)
+    
+csvfile.close()
+    
+
+while True:
+    Numale1 = random.random()
+    
